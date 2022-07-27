@@ -1,0 +1,24 @@
+{
+    "courses": [
+        {
+            "name": "Engenharia da Computação",
+            "id": 1,
+            "code": 5
+        },
+        {
+            "name": "Artes",
+            "id": 2,
+            "code": 10
+        },
+        {
+            "name": "Matemática",
+            "id": 3,
+            "code": 15
+        },
+        {
+            "name": "Filosofia",
+            "id": 4,
+            "code": 20
+        }
+    ]
+}
