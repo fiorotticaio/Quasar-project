@@ -4,9 +4,8 @@
       <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
         <q-input
           filled
-          v-model="name"
-          label="Your name *"
-          hint="Name and surname"
+          v-model="form.name"
+          label="Nome do curso"
           lazy-rules
           :rules="[(val) => (val && val.length > 0) || 'Please type something']"
         />
@@ -14,19 +13,24 @@
         <q-input
           filled
           type="number"
-          v-model="age"
-          label="Your age *"
+          v-model="form.id"
+          label="ID do curso"
           lazy-rules
-          :rules="[
-            (val) => (val !== null && val !== '') || 'Please type your age',
-            (val) => (val > 0 && val < 100) || 'Please type a real age',
-          ]"
+          :rules="[(val) => (val && val.length > 0) || 'Please type something']"
         />
 
-        <q-toggle v-model="accept" label="I accept the license and terms" />
+        <q-input
+          filled
+          type="number"
+          v-model="form.code"
+          label="Código do curso"
+          lazy-rules
+          :rules="[(val) => (val && val.length > 0) || 'Please type something']"
+        />
 
         <div>
           <q-btn label="Submit" type="submit" color="primary" />
+
           <q-btn
             label="Reset"
             type="reset"
@@ -43,23 +47,32 @@
 <script>
 import { defineComponent, ref, onMounted } from "vue";
 import { api } from "../boot/axios";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   name: "CreateCourse",
   setup() {
-    onMounted(() => {
-      createCourse();
+    const router = useRouter();
+
+    const form = ref({
+      name: "",
+      id: "",
+      code: "",
     });
 
-    // const createCourse = async () => {
-    //   try {
-    //     await api.post("http://localhost:3004/courses");
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // };
+    const onSubmit = async () => {
+      try {
+        const res = await api.post("http://localhost:3004/courses", form.value);
+        router.push({ name: "IndexPage" });
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-    return {};
+    return {
+      form,
+      onSubmit,
+    };
   },
 });
 </script>
