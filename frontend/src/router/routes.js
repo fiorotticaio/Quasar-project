@@ -18,6 +18,11 @@ const routes = [
         name: "EditCourse",
         component: () => import("pages/EditCourse.vue"),
       },
+      {
+        path: "edit-course/:id?",
+        name: "EditSpecificCourse",
+        component: () => import("pages/EditSpecificCourse.vue"),
+      },
     ],
   },
 
