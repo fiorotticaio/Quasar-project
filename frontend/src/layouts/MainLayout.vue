@@ -54,7 +54,7 @@ const linksList = [
     title: "Editar",
     caption: "curso existente",
     icon: "edit",
-    route: { name: "CreateCourse" },
+    route: { name: "EditCourse" },
   },
   {
     title: "Deletar",

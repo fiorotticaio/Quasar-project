@@ -45,14 +45,16 @@
 </template>
 
 <script>
-import { defineComponent, ref, onMounted } from "vue";
+import { defineComponent, ref } from "vue";
 import { api } from "../boot/axios";
 import { useRouter } from "vue-router";
+import { useQuasar } from "quasar";
 
 export default defineComponent({
   name: "CreateCourse",
   setup() {
     const router = useRouter();
+    const $q = useQuasar();
 
     const form = ref({
       name: "",
@@ -63,9 +65,19 @@ export default defineComponent({
     const onSubmit = async () => {
       try {
         const res = await api.post("http://localhost:3004/courses", form.value);
+        $q.notify({
+          message: "Curso criado com sucesso!",
+          color: "positive",
+          icon: "check",
+        });
         router.push({ name: "IndexPage" });
       } catch (error) {
         console.log(error);
+        $q.notify({
+          message: "Falha ao criar curso!",
+          color: "negative",
+          icon: "close",
+        });
       }
     };
 
