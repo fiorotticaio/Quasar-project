@@ -1,49 +1,24 @@
 {
   "courses": [
     {
-      "name": "Engenharia da Computação",
       "id": 1,
-      "code": 5
+      "name": "Engenharia da Computação",
+      "code": "5"
     },
     {
-      "name": "Artes",
       "id": 2,
-      "code": 10
-    },
-    {
-      "name": "Matemática",
-      "id": 3,
-      "code": 15
-    },
-    {
-      "name": "Filosofia",
-      "id": 4,
-      "code": 20
-    },
-    {
-      "name": "geografia",
-      "id": "12",
-      "code": "77"
-    },
-    {
-      "name": "bsd",
-      "id": "6565",
-      "code": "65655"
+      "name": "Artes",
+      "code": "10"
     },
     {
       "name": "Medicina",
-      "id": "7",
-      "code": "77"
+      "id": "3",
+      "code": "21"
     },
     {
-      "name": "Med",
-      "id": "67",
-      "code": "776"
-    },
-    {
-      "name": "Baby bay do ",
-      "id": "7766567",
-      "code": "76565"
+      "name": "Direito",
+      "id": "4",
+      "code": "25"
     }
   ]
 }
