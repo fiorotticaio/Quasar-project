@@ -1,24 +1,14 @@
 {
   "courses": [
     {
-      "id": 1,
-      "name": "Engenharia da Computação",
-      "code": "5"
-    },
-    {
-      "id": 2,
-      "name": "Artes",
-      "code": "10"
-    },
-    {
-      "name": "Medicina",
-      "id": "3",
-      "code": "21"
-    },
-    {
       "name": "Direito",
       "id": "4",
-      "code": "25"
+      "code": "26"
+    },
+    {
+      "name": "Engenharia da Computação",
+      "id": "1",
+      "code": "5"
     }
   ]
 }
