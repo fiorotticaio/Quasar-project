@@ -23,6 +23,11 @@ const routes = [
         name: "EditSpecificCourse",
         component: () => import("pages/EditSpecificCourse.vue"),
       },
+      {
+        path: "delete-course",
+        name: "DeleteCourse",
+        component: () => import("pages/DeleteCourse.vue"),
+      },
     ],
   },
 

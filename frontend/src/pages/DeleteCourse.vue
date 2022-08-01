@@ -5,7 +5,7 @@
         <q-input
           color="purple-12"
           v-model="id"
-          label="ID do curso que deseja editar"
+          label="ID do curso que deseja deletar"
         >
           <template v-slot:prepend>
             <q-icon name="none" />
@@ -14,9 +14,9 @@
 
         <q-btn
           @click="onSubmit(id)"
-          label="Procurar"
+          label="Deletar"
           type="submit"
-          color="primary"
+          color="red"
         />
       </div>
     </div>
@@ -37,7 +37,7 @@ export default defineComponent({
     const $q = useQuasar();
 
     const form = ref({
-      id: id,
+      id: "",
       name: "",
       code: "",
     });
@@ -45,7 +45,22 @@ export default defineComponent({
     const onSubmit = async (id) => {
       try {
         const { data } = await api.get(`http://localhost:3004/courses/${id}`);
-        router.push({ name: "EditSpecificCourse", params: { id } });
+        form.value = data;
+
+        $q.dialog({
+          title: "Confirmação",
+          message: `Deseja deletar o curso ${data.name}?`,
+          cancel: true,
+          persistent: true,
+        }).onOk(() => {
+          api.delete(`http://localhost:3004/courses/${id}`);
+          router.push({ name: "IndexPage" });
+          $q.notify({
+            message: "Curso deletado com sucesso",
+            color: "positive",
+            icon: "check",
+          });
+        });
       } catch (error) {
         console.log(error);
         $q.notify({
@@ -54,6 +69,8 @@ export default defineComponent({
           icon: "close",
         });
       }
+
+      //   router.push({ name: "DeleteSpecificCourse", params: { id } });
     };
 
     return {

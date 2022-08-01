@@ -29,10 +29,10 @@
         />
 
         <div>
-          <q-btn label="Submit" type="submit" color="primary" />
+          <q-btn label="Criar" type="submit" color="primary" />
 
           <q-btn
-            label="Reset"
+            label="Limpar"
             type="reset"
             color="primary"
             flat

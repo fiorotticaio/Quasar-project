@@ -60,7 +60,7 @@ const linksList = [
     title: "Deletar",
     caption: "curso existente",
     icon: "delete",
-    route: { name: "CreateCourse" },
+    route: { name: "DeleteCourse" },
   },
 ];
 

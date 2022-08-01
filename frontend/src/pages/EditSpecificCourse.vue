@@ -70,7 +70,6 @@ export default defineComponent({
 
     onMounted(async () => {
       if (route.params.id) {
-        // atualizando
         try {
           const { data } = await api.get(
             `http://localhost:3004/courses/${route.params.id}`
@@ -78,6 +77,11 @@ export default defineComponent({
           form.value = data;
         } catch (error) {
           console.log(error);
+          $q.notify({
+            message: "ID não encontrado",
+            color: "negative",
+            icon: "close",
+          });
         }
       }
     });
