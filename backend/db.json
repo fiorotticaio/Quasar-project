@@ -1,14 +1,14 @@
 {
   "courses": [
     {
-      "name": "Direito",
-      "id": "4",
-      "code": "26"
+      "name": "Medicina",
+      "id": "3",
+      "code": "30"
     },
     {
-      "name": "Engenharia da Computação",
-      "id": "1",
-      "code": "5"
+      "name": "Direito",
+      "id": "8",
+      "code": "15"
     }
   ]
 }
